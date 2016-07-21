@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, Text, View, ListView, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { StyleSheet, AppRegistry, Text, View, ListView, TouchableOpacity, Image, Dimensions, Navigator} from 'react-native';
 
 import ViewContainer from '../components/ViewContainer';
 import StatusBarBackground from '../components/StatusBarBackground';
@@ -22,6 +22,9 @@ class PersonShowScreen extends Component {
                 return (
                     <ViewContainer>
                         <StatusBarBackground backgroundColor = '#5F89B3'/>
+                        <TouchableOpacity onPress={() => this.props.navigator.pop()}>
+                            <Icon name="chevron-left" style={styles.backIcon}/>
+                        </TouchableOpacity>
                         <Text style={styles.indentity}>
                             { this.props.person.id }
                         </Text>
@@ -39,6 +42,9 @@ class PersonShowScreen extends Component {
                 return (
                     <ViewContainer>
                         <StatusBarBackground backgroundColor = '#5F89B3'/>
+                        <TouchableOpacity onPress={() => this.props.navigator.pop()}>
+                            <Icon name="chevron-left" style={styles.backIcon}/>
+                        </TouchableOpacity>
                         <Text style={styles.indentity}>
                             { this.props.person.id }
                         </Text>
@@ -56,6 +62,9 @@ class PersonShowScreen extends Component {
                 return (
                     <ViewContainer>
                         <StatusBarBackground backgroundColor = '#5F89B3'/>
+                        <TouchableOpacity onPress={() => this.props.navigator.pop()}>
+                            <Icon name="chevron-left" style={styles.backIcon}/>
+                        </TouchableOpacity>
                         <Text style={styles.indentity}>
                             { this.props.person.id }
                         </Text>
@@ -73,6 +82,9 @@ class PersonShowScreen extends Component {
                 return (
                     <ViewContainer>
                         <StatusBarBackground backgroundColor = '#5F89B3'/>
+                        <TouchableOpacity onPress={() => this.props.navigator.pop()}>
+                            <Icon name="chevron-left" style={styles.backIcon}/>
+                        </TouchableOpacity>
                         <Text style={styles.indentity}>
                             { this.props.person.id }
                         </Text>
@@ -109,6 +121,11 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       height: window.height - 90,
       width: window.width,
+  },
+
+  backIcon: {
+      color: '#5F89B3',
+      margin: 10,
   },
 
 });

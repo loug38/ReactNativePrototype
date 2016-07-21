@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, Text, View, ListView, TouchableOpacity } from 'react-native';
+import { StyleSheet, AppRegistry, Text, View, ListView, TouchableOpacity, Navigator } from 'react-native';
 
 import ViewContainer from '../components/ViewContainer';
 import StatusBarBackground from '../components/StatusBarBackground';
@@ -27,6 +27,9 @@ class PeopleIndexScreen extends Component {
         return(
             <ViewContainer>
                 <StatusBarBackground backgroundColor = '#5F89B3'/>
+                <TouchableOpacity onPress={() => this.props.navigator.pop()}>
+                    <Icon name="chevron-left" style={styles.backIcon}/>
+                </TouchableOpacity>
                 <ListView
                     style={{marginTop: 100}}
                     dataSource={this.state.peopleDataSource}
@@ -52,6 +55,7 @@ class PeopleIndexScreen extends Component {
          this.props.navigator.push({
              ident: "PersonShow",
              person: person,
+             sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
          });
      }
 }
@@ -62,6 +66,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#F5FCFF',
+    },
+
+    backIcon:{
+        height: 30,
+        width: 30,
+        color: '#5F89B3',
+        margin: 10,
     },
 
     personRow: {
