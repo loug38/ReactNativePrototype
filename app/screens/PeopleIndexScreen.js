@@ -23,9 +23,9 @@ class PeopleIndexScreen extends Component {
         };
     }
 
-     render() {
-         return(
-             <ViewContainer>
+    render() {
+        return(
+            <ViewContainer>
                 <StatusBarBackground backgroundColor = '#5F89B3'/>
                 <ListView
                     style={{marginTop: 100}}
@@ -33,8 +33,8 @@ class PeopleIndexScreen extends Component {
                     renderRow={(person) => {return this._renderPersonRow(person)}}
                 />
              </ViewContainer>
-         );
-     }
+        );
+    }
 
      _renderPersonRow(person){
          return (

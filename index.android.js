@@ -1,52 +1,57 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { StyleSheet, AppRegistry, Navigator, View, Text} from 'react-native';
+import StatusBarBackground from './app/components/StatusBarBackground';
+import PeopleIndexScreen from './app/screens/PeopleIndexScreen';
+import PersonShowScreen from './app/screens/PersonShowScreen';
+import LoginScreen from './app/screens/LoginScreen';
+
 
 class ReactNativePrototype extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
+    render() {
+        return(
+            <Navigator
+                initialRoute={{ident:"Login"}}
+                ref="appNavigator"
+                style={styles.navigatorStyles}
+                renderScene={this._renderScene}
+            />
+        );
+    }
+
+    _renderScene(route, navigator){
+        var globalNavigatorProps = { navigator }
+
+        switch(route.ident){
+            case "PeopleIndex":
+                return (
+                    <PeopleIndexScreen {...globalNavigatorProps } />
+                );
+
+            case "PersonShow":
+                return (
+                    <PersonShowScreen {...globalNavigatorProps}
+                        person={route.person}
+                    />
+                );
+
+            case "Login":
+                return (
+                    <LoginScreen {...globalNavigatorProps} />
+                );
+            default:
+            //can do a route not found or some error handler here. (Maybe dev err message)
+                return(
+                    <PeopleIndexScreen {...globalNavigatorProps } />
+                );
+        }
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+  const styles = StyleSheet.create({
+      navigatorStyles: {
+
+      }
+  });
+
 
 AppRegistry.registerComponent('ReactNativePrototype', () => ReactNativePrototype);
