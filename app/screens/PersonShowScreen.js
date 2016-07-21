@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, Text, View, ListView, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, AppRegistry, Text, View, ListView, TouchableOpacity, Image, Dimensions } from 'react-native';
 
 import ViewContainer from '../components/ViewContainer';
 import StatusBarBackground from '../components/StatusBarBackground';
@@ -8,6 +8,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 //You can import from one file into both iOS and android like:
 //import message from "./temp"
+
+const window = Dimensions.get('window');
 
 class PersonShowScreen extends Component {
     constructor(props){
@@ -92,20 +94,21 @@ const styles = StyleSheet.create({
   personName: {
       backgroundColor: '#afdef8',
       fontSize: 15,
-      padding: 20,
+      padding: 10,
   },
 
   indentity: {
       backgroundColor: '#8Fbce6',
       alignItems: 'center',
-      padding: 10,
+      padding: 2,
       fontSize: 20,
   },
 
   imageStyle: {
+      alignItems: 'center',
       justifyContent: 'center',
-      width: 400,
-      height: 600,
+      height: window.height - 90,
+      width: window.width,
   },
 
 });

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';``
-import { StyleSheet, AppRegistry, Text, View, TouchableOpacity, TextInput, Image } from 'react-native';
+import { StyleSheet, AppRegistry, Text, View, TouchableOpacity, TextInput, Image, Dimensions } from 'react-native';
 
 import StatusBarBackground from '../components/StatusBarBackground';
 import Button from '../../node_modules/react-native-button';
 
+const window = Dimensions.get('window');
 
 class LoginScreen extends Component {
     constructor(props) {
@@ -22,7 +23,6 @@ class LoginScreen extends Component {
             <View>
                 <StatusBarBackground backgroundColor = '#5F89B3'/>
                 <View style={styles.container}>
-                    <StatusBarBackground backgroundColor = '#5F89B3'/>
                     <Image style={styles.logoStyle}
                         source={require('../../img/loginlogo1.png')}
                     />
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 
   border: {
       height: 40,
-      width: 350,
+      width: window.width - 100,
       paddingBottom: 0,
       paddingLeft: 0,
       justifyContent: 'center',
