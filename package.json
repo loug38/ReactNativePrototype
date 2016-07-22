@@ -11,6 +11,7 @@
     "react-native": "0.29.2",
     "react-native-button": "^1.6.0",
     "react-native-loading-spinner-overlay": "^0.2.3",
+    "react-native-scrollable-tab-view": "^0.5.3",
     "react-native-vector-icons": "^2.0.3"
   }
 }

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { StyleSheet, AppRegistry, Text, View, ListView, TouchableOpacity, Navigator } from 'react-native';
+import { StyleSheet, AppRegistry, Text, View, ListView, TouchableOpacity, Navigator, Dimensions } from 'react-native';
 
 import ViewContainer from '../components/ViewContainer';
 import StatusBarBackground from '../components/StatusBarBackground';
 import _ from 'lodash';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+const window = Dimensions.get('window');
 
 const people = [
     {firstName: "Oliver", lastName: "Queen", id: "Green Arrow"},
@@ -28,10 +29,17 @@ class PeopleIndexScreen extends Component {
             <ViewContainer>
                 <StatusBarBackground backgroundColor = '#5F89B3'/>
                 <TouchableOpacity onPress={() => this.props.navigator.pop()}>
-                    <Icon name="chevron-left" style={styles.backIcon}/>
+                    <Icon name="chevron-left" style={styles.backIcon}>
+                        <Text style={{color: '#5F89B3'}}>
+                            {`  Logout`}
+                        </Text>
+                    </Icon>
+                <Text style={styles.clients}>
+                    Clients
+                </Text>
                 </TouchableOpacity>
                 <ListView
-                    style={{marginTop: 100}}
+                    style={{marginTop: 20}}
                     dataSource={this.state.peopleDataSource}
                     renderRow={(person) => {return this._renderPersonRow(person)}}
                 />
@@ -55,24 +63,19 @@ class PeopleIndexScreen extends Component {
          this.props.navigator.push({
              ident: "PersonShow",
              person: person,
-             sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
+             sceneConfig: Navigator.SceneConfigs.VerticalUpSwipeJump,
          });
      }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
 
     backIcon:{
-        height: 30,
-        width: 30,
+        height: 25,
+        width: 80,
         color: '#5F89B3',
-        margin: 10,
+        marginLeft: 10,
+        marginTop: 10,
     },
 
     personRow: {
@@ -91,6 +94,16 @@ const styles = StyleSheet.create({
         height: 20,
         width: 20,
         marginRight: 20,
+    },
+
+    clients: {
+        backgroundColor: '#2D6791',
+        color: '#ffffff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingLeft: (window.width/3),
+        paddingRight: (window.width/3),
+        fontSize: 40,
     },
 });
 
