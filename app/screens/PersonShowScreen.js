@@ -33,10 +33,11 @@ class PersonShowScreen extends Component {
     }
 
     render() {
+        //Fetches all necessary info to be displayed
         switch(this.props.person.id){
             case "Green Arrow": {
                 var image = require('../../img/greenArrow.jpg');
-                var powers = `Archery \nAgility \nMoney Survivability`;
+                var powers = `Archery \nAgility \nMoney Survivability \nStrength`;
                 break;
             }
             case "Green Lantern": {

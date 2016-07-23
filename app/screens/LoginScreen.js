@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 
   loginNameField: {
       height: 40,
-      width: 200,
+      width: window.width,
   },
 
   passwordField: {

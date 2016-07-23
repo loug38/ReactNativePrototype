@@ -34,10 +34,10 @@ class PeopleIndexScreen extends Component {
                             {`  Logout`}
                         </Text>
                     </Icon>
+                </TouchableOpacity>
                 <Text style={styles.clients}>
                     Clients
                 </Text>
-                </TouchableOpacity>
                 <ListView
                     style={{marginTop: 20}}
                     dataSource={this.state.peopleDataSource}
